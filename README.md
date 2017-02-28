@@ -1,2 +1,2 @@
 # auditorium
-Scraping for utilities.
+Scrapping for utilities.
