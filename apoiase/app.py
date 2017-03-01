@@ -20,14 +20,9 @@ def home():
     if response.status_code == 200:
         page = json.loads(response.text)
         users = page.get('supports', {}).get('users', [])
-        users = filter(filter_private_supporters, users)
+        users = filter(lambda u: not u.get('privateSupport'), users)
         names = list(map(serializer, users))
         return jsonify(names)
-
-
-def filter_private_supporters(apoiase_users):
-    if not apoiase_users.get('privateSupport'):
-        return apoiase_users
 
 
 def serializer(apoiase_users):
