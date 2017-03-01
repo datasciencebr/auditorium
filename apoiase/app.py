@@ -1,7 +1,7 @@
 import json
 
 import requests
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 
 import config
@@ -14,7 +14,9 @@ CORS(app)
 
 @app.route('/')
 def home():
-    response = requests.get('https://apoia.se/api/v1/users/serenata?format=json')
+    if not config.APOIASE_URL:
+        return render_template('no_env_variable.html')
+    response = requests.get(config.APOIASE_URL)
     if response.status_code == 200:
         page = json.loads(response.text)
         users = page.get('supports', {}).get('users', [])
