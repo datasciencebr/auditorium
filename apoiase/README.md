@@ -11,11 +11,11 @@ gives support to manage Python's virtual environments.
 
 2. Create your Python 3 environment with:
 
-`virtualenv -p python3 auditorium`
+`virtualenv -p python3 apoiase`
 
 3. Activate your environment using:
 
-`source auditorium/bin/activate`
+`source apoiase/bin/activate`
 
 4. Run the setup:
 
