@@ -4,10 +4,13 @@ import requests
 from flask import Flask, jsonify
 from flask_cors import CORS
 
+import config
+
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 CORS(app)
+
 
 @app.route('/')
 def home():
@@ -25,6 +28,7 @@ def serializer(users):
         return dict(
             name=users.get('_id').get('name')
         )
+
 
 if __name__ == '__main__':
     app.run()
