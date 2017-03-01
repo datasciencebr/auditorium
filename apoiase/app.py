@@ -20,16 +20,16 @@ def home():
     if response.status_code == 200:
         page = json.loads(response.text)
         users = page.get('supports', {}).get('users', [])
-        names = list(map(serializer, users))
+        names = map(serializer, users)
+        names = [name for name in names if name]
         return jsonify(names)
 
 
 def serializer(users):
     private=users.get('privateSupport')
     if not private:
-        return dict(
-            name=users.get('_id').get('name')
-        )
+        return dict(name=users.get('_id').get('name'))
+
 
 
 if __name__ == '__main__':
