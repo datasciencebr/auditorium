@@ -1,7 +1,7 @@
 import json
 
 import requests
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 import config
@@ -15,7 +15,9 @@ CORS(app)
 @app.route('/')
 def home():
     if not config.APOIASE_URL:
-        return render_template('no_env_variable.html')
+        error = dict(error='Apoia.se URL not set as env variable!')
+        return jsonify(error), 500
+
     response = requests.get(config.APOIASE_URL)
     if response.status_code == 200:
         page = json.loads(response.text)
