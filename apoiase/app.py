@@ -29,7 +29,3 @@ def home():
 
 def serializer(apoiase_users):
     return dict(name=apoiase_users.get('_id').get('name'))
-
-
-if __name__ == '__main__':
-    app.run()
