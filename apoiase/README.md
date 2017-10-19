@@ -17,7 +17,7 @@ You can do so by installing [virtualenv][4], which is a tool that
 gives support to manage Python's virtual environments.
 
 ##### virtualenv
-1. Install [virtualenv][1]
+1. Install [virtualenv][4]
 
 2. Create your Python 3 environment with:
 
@@ -69,8 +69,8 @@ If everything is working properly you should see a JSON with all not private
 supporters names.
 
 
-[1]: https://apoia.se/
-[2]: http://flask.pocoo.org/
+[1]: http://flask.pocoo.org/
+[2]: https://apoia.se/
 [3]: https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps
 [4]: https://virtualenv.pypa.io/
 [5]: http://flask.pocoo.org/docs/0.12/cli/
